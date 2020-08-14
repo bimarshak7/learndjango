@@ -27,3 +27,10 @@ def del_task(request,del_key):
 	Task.objects.get(id=del_key).delete()
 	messages.info(request,'Task Deleted')
 	return redirect('/home')
+
+def task_done(request,task_key):
+	task=Task.objects.get(id=task_key)
+	task.done=True
+	task.save()
+	return redirect('/home')
+

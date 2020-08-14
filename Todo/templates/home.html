@@ -22,7 +22,17 @@
 
 <ul class="list-group">
 {% for task in tasks %}
-  <li class="list-group-item d-flex justify-content-between align-items-center">{{task.title}} <a href="del/{{task.id}}"><i class="material-icons">delete</i></a> </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    {{task.title}}
+    <div>
+  {% if task.done %}
+    <i class="material-icons" style='color:green;margin:0 20px'>check</i>
+  {% else %}
+    <a href="done/{{task.id}}"><i class="material-icons" style="color:red;margin:0 20px">hourglass_top</i></a>
+  {% endif %}
+  <a href="del/{{task.id}}"><i class="material-icons">delete</i></a> 
+  </div>
+  </li>
 {% endfor %}
 </ul>
 </form>
