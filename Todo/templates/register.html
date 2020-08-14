@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="signup-form">
+    <form action="" method="post">
+    	{% csrf_token %}
+		<h2>Register New Account</h2>
+		<p>Please fill in this form to create an account!</p>
+		{% for message in messages %}
+			<span style="color:red">{{message}}</span>
+		{% endfor %}
+		<hr>
+        <div class="form-group">
+			<div class="row">
+				<div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
+				<div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
+			</div>        	
+        </div>
+        <div class="form-group">
+        	<div class="row">
+	        	<div class="col"><input type="text" class="form-control" name="user_name" placeholder="User Name" required="required"></div>
+	        	<div class="col"><input type="email" class="form-control" name="email" placeholder="Email" required="required"></div>
+        	</div>
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+        </div>        
+        
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg">Register</button>
+        </div>
+    </form>
+	<div class="hint-text">Already have an account? <a href="/">Login here</a></div>
+</div>
+
+
+{% endblock %}
